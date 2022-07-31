@@ -18,3 +18,4 @@ jobs:
       run: |
         docker login --username ${{ secrets.DOCKER_HUB_USER_NAME }} --password ${{ secrets.DOCKER_HUB_PASSWORD }}
         docker build . --file Dockerfile --tag lextm/nginx:latest
+        docker push lextm/nginx:latest
