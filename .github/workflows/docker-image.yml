@@ -13,9 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Azure Container Registry Login
+      uses: Azure/docker-login@v1
+      with:
+        # Container registry username
+        username: ${{ secrets.DOCKER_HUB_USER_NAME }}
+        # Container registry password
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+        # Container registry server url
+        login-server: lextudio.azurecr.io
+    
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
-        docker login --username ${{ secrets.DOCKER_HUB_USER_NAME }} --password ${{ secrets.DOCKER_HUB_PASSWORD }}
         docker build . --file Dockerfile --tag lextm/nginx:latest
         docker push lextm/nginx:latest
