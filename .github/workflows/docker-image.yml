@@ -26,5 +26,6 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
+        docker login lextudio.azurecr.io
         docker build . --file Dockerfile --tag lextm/nginx:latest
         docker push lextm/nginx:latest
