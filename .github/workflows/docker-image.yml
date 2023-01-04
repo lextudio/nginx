@@ -16,6 +16,6 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
-        docker login ${{ secrets.DOCKER_HUB }} --username ${{ secrets.DOCKER_HUB_USER_NAME }} --password ${{ secrets.DOCKER_HUB_PASSWORD }}
-        docker build . --file Dockerfile --tag ${{ secrets.DOCKER_HUB }}/nginx:latest
-        docker push ${{ secrets.DOCKER_HUB }}/nginx:latest
+        docker login --username ${{ secrets.DOCKER_HUB_USER_NAME }} --password ${{ secrets.DOCKER_HUB_PASSWORD }}
+        docker build . --file Dockerfile --tag lextudio/nginx:latest
+        docker push lextudio/nginx:latest
