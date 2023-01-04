@@ -1,1 +1,1 @@
-docker build -t lextm/nginx .
+docker build -t nginx .
