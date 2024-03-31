@@ -4,3 +4,4 @@ COPY nginx.conf /etc/nginx
 COPY proxy.conf /etc/nginx
 COPY certificate.pem /etc/ssl
 COPY key.pem /etc/ssl
+COPY id.txt /usr/share/nginx/html
